@@ -21,7 +21,17 @@ const assertArraysEqual = function(arrayOne, arrayTwo) {
 };
 
 const letterPositions = function(str) {
-
+  const results = {};
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ' ') {
+      if (results[str[i]]) {
+        results[str[i]].push(i);
+      } else {
+        results[str[i]] = [i];
+      }
+    }
+  }
+  return results;
 };
 
 
@@ -30,20 +40,10 @@ const letterPositions = function(str) {
 
 
 
-const actualResults =  letterPositions('')
+const actualResults =  letterPositions('hello');
 
 
-const expectedResults = { 
-  l: [0],
-  i: [1, 11],
-  g: [2],
-  h: [3, 5, 15, 18],
-  t: [4, 14],
-  o: [6, 19],
-  u: [7, 20],
-  s: [8, 21],
-  e: [9, 16, 22],
-  n: [12]
-};
-
-assertArraysEqual()
+assertArraysEqual(actualResults['h'], [0]);
+assertArraysEqual(actualResults['e'], [1]);
+assertArraysEqual(actualResults['l'], [2, 3]);
+assertArraysEqual(actualResults['o'], [4]);
