@@ -20,20 +20,24 @@ const assertArraysEqual = function(arrayOne, arrayTwo) {
   }
 };
 
-const flatten = function(arrayOfThings) {
-  const newArray = [];
-  for (const elm of arrayOfThings) {
-    if (!Array.isArray(elm)) {
-      newArray.push(elm);
+const middle = function(array) {
+  const midIndex = Math.floor(array.length / 2);
+  let midArray = [];
+  if (Array.isArray(array)) {
+    if (array.length <= 2) {
+      return midArray;
+    } else if (array.length % 2 === 0) {
+      midArray = array.slice(midIndex - 1, midIndex + 1);
     } else {
-      for (const element of elm) {
-        newArray.push(element);
-      }
+      midArray = array.slice(midIndex , midIndex + 1);
     }
   }
-  return newArray;
+  return midArray;
 };
 
-assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
-
-
+//tests
+assertArraysEqual(middle([1, 2, 3]), [2]);
+assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]);
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+assertArraysEqual(middle([1]), []);
+assertArraysEqual(middle([1, 2]), []);

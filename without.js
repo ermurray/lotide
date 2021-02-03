@@ -27,8 +27,8 @@ const without = function(source, itemsToRemove) {
     // console.log('first for', source);
     for (let j = 0; j < itemsToRemove.length; j++) {
       if (editedArray[i] === itemsToRemove[j]) {
-        // editedArray.splice(i, 1);
-        console.log('after splice', source);
+        editedArray.splice(i, 1);
+        //console.log('after splice', source);
       }
     }
   }

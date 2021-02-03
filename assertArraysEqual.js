@@ -1,12 +1,11 @@
 const eqArrays = function(arrayOne, arrayTwo) {
-  let pass = false;
-  if (arrayOne.length === arrayTwo.length) {
-    for (let i = 0; i < arrayOne.length; i++) {
-      if (arrayOne[i] === arrayTwo[i]) {
-        pass = true;
-      } else {
-        pass = false;
-      }
+  let pass = true;
+  if (arrayOne.length !== arrayTwo.length) {
+    pass = false;
+  }
+  for (let i = 0; i < arrayOne.length; i++) {
+    if (arrayOne[i] !== arrayTwo[i]) {
+      pass = false;
     }
   }
   return pass;
