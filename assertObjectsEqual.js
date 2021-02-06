@@ -12,22 +12,20 @@ const eqArrays = function(arrayOne, arrayTwo) {
 };
 
 const eqObjects = function(object1, object2) {
+  let result = true;
   if (Object.keys(object1).length !== Object.keys(object2).length) {
-    return false;
+    result = false;
   }
   for (const key in object1) {
     if (Array.isArray(object1[key])) {
-      return eqArrays(object1[key], object2[key]);
-    }
-    if (!Array.isArray(object1[key])) {
-      return eqObjects(object1[key], object2[key]);
-    }
-    if (object1[key] !== object2[key]) {
-      
-      return false;
+      result = eqArrays(object1[key], object2[key]);
+    } else if (!Array.isArray(object1[key]) && typeof object1[key] === 'object') {
+      result = eqObjects(object1[key], object2[key]);
+    } else if (object1[key] !== object2[key]) {
+      result = false;
     }
   }
-  return true;
+  return result;
 };
 
 // eslint-disable-next-line no-unused-vars
