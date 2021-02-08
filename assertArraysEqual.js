@@ -1,15 +1,4 @@
-const eqArrays = function(arrayOne, arrayTwo) {
-  let pass = true;
-  if (arrayOne.length !== arrayTwo.length) {
-    pass = false;
-  }
-  for (let i = 0; i < arrayOne.length; i++) {
-    if (arrayOne[i] !== arrayTwo[i]) {
-      pass = false;
-    }
-  }
-  return pass;
-};
+const eqArrays = require('./eqArrays.js');
 
 // eslint-disable-next-line no-unused-vars
 const assertArraysEqual = function(arrayOne, arrayTwo) {
@@ -20,5 +9,4 @@ const assertArraysEqual = function(arrayOne, arrayTwo) {
   }
 };
 
-// assertArraysEqual([1,2,3], [1,2,3]);
-// assertArraysEqual([1,2,3],[3,2,1]);
+module.exports = assertArraysEqual;
