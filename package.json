@@ -1,8 +1,8 @@
 {
-  "name": "lotide",
+  "name": "@ermurray31/lotide",
   "version": "1.0.0",
   "description": "light house labs week 1 project library similar to lodash",
-  "main": "assertArraysEqual.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
